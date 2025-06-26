@@ -253,3 +253,27 @@ footer a:hover {
   color: #212529;
   transform: translateY(-3px);
 }
+
+/* About Section */
+
+.about-section {
+  background-color: rgba(0, 0, 0, 0.75); /* soft black transparent over dull bg */
+  color: #f5f5f5; /* soft white text */
+  padding: 60px 20px;
+  border-top: 1px solid #444;
+  border-bottom: 1px solid #444;
+}
+
+.about-section .section-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.about-section .about-text {
+  font-size: 1.125rem;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+  color: #dddddd;
+}
