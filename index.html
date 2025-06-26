@@ -7,6 +7,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
   <!-- Navbar -->
@@ -57,13 +58,29 @@
       <!-- Menu items go here -->
     </section>
 
-    <section id="cart" class="container py-5">
-      <h2><i class="bi bi-cart4"></i> Your Cart</h2>
-      <form class="mb-3">
-        <input type="text" class="form-control mb-2" placeholder="Enter your name">
-        <button class="btn btn-success w-100">Place Order</button>
-      </form>
-    </section>
+    <!-- Cart Section -->
+<section id="cart" class="container py-5">
+  <!-- Cart header -->
+  <h2><i class="bi bi-cart4"></i> Your Cart</h2>
+
+  <!-- This list will be populated dynamically by JavaScript with the cart items -->
+  <ul id="cart-items" class="list-group mb-3"></ul>
+
+  <!-- Displays the total price of all items in the cart -->
+  <p>
+    <strong>Total: KES <span id="cart-total">0</span></strong>
+  </p>
+
+  <!-- Order placement form -->
+  <form class="mb-3">
+    <!-- Input field for user's name -->
+    <input type="text" class="form-control mb-2" placeholder="Enter your name">
+
+    <!-- Button to place the order -->
+    <button class="btn btn-success w-100">Place Order</button>
+  </form>
+</section>
+
   </div>
 
   <!-- Footer Section -->
