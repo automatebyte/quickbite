@@ -277,3 +277,43 @@ footer a:hover {
   line-height: 1.8;
   color: #dddddd;
 }
+/* SERVICES SECTION STYLING */
+#services {
+  margin-top: 80px;
+}
+
+.services-section {
+  background-color: rgba(0, 0, 0, 0.75); /* deep grey for classy contrast */
+  color: #f5f5f5;
+}
+
+.services-section h2 {
+  font-weight: 600;
+  color: #ffffff;
+  border-bottom: 2px solid #0dcaf0;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+.services-section h5 {
+  font-weight: 500;
+  margin-top: 15px;
+}
+
+.services-section p {
+  color: #cccccc;
+  font-size: 15px;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+.services-section i {
+  color: #0dcaf0; /* light blue by default */
+  transition: transform 0.3s ease;
+}
+
+.services-section i:hover {
+  transform: scale(1.2);
+}
+
+
