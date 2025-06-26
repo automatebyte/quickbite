@@ -128,3 +128,51 @@ document.querySelector("form").addEventListener("submit", function (e) {
   updateCart(); // refresh cart UI
   this.reset(); // clear form input
 });
+// === Discover Meals Using TheMealDB API ===
+document.addEventListener("DOMContentLoaded", () => {
+  fetchDiscoverMeals(); // Load API meals on page load
+});
+
+/**
+ * Fetch meals from TheMealDB API and display them
+ */
+function fetchDiscoverMeals() {
+  // API endpoint for random meals
+  const API_URL = 'https://www.themealdb.com/api/json/v1/1/search.php?f=c';
+
+  fetch(API_URL)
+    .then(response => response.json())
+    .then(data => {
+      if (data.meals) {
+        displayDiscoveredMeals(data.meals);
+      } else {
+        document.getElementById("api-meals").innerHTML = "<p>No meals found.</p>";
+      }
+    })
+    .catch(err => {
+      console.error("Error fetching meals:", err);
+      document.getElementById("api-meals").innerHTML = "<p>Failed to load meals.</p>";
+    });
+}
+
+/**
+ * Render meals from API inside #api-meals section
+ */
+function displayDiscoveredMeals(meals) {
+  const apiContainer = document.getElementById("api-meals");
+  meals.forEach(meal => {
+    const col = document.createElement("div");
+    col.className = "col-md-4 mb-4";
+    col.innerHTML = `
+      <div class="card h-100">
+        <img src="${meal.strMealThumb}" class="card-img-top" alt="${meal.strMeal}">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">${meal.strMeal}</h5>
+          <p class="card-text"><strong>Category:</strong> ${meal.strCategory || "N/A"}</p>
+          <a href="${meal.strSource || '#'}" target="_blank" class="btn btn-outline-primary mt-auto">Explore Recipe</a>
+        </div>
+      </div>
+    `;
+    apiContainer.appendChild(col);
+  });
+}
