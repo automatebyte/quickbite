@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
 // Cart array to track items
 let cart = [];
 
-/**
- * Simulate fetching menu data (replace with fetch if using db.json or API)
- */
+
+  // Simulate fetching menu data (replace with fetch if using db.json or API)
+ 
 function fetchMenuItems() {
   const menuData = [
     { id: 1, name: "Burger", price: 350, image: "assests/burger.jpeg" },
@@ -18,9 +18,8 @@ function fetchMenuItems() {
   displayMenu(menuData);
 }
 
-/**
- * Display menu cards with Add to Cart buttons
- */
+//  Display menu cards with Add to Cart buttons
+ 
 function displayMenu(items) {
   const menuSection = document.getElementById("menu");
   const row = document.createElement("div");
@@ -52,9 +51,9 @@ function displayMenu(items) {
   attachCartListeners();
 }
 
-/**
- * Attach click listeners to "Add to Cart" buttons
- */
+
+  // Attach click listeners to "Add to Cart" buttons
+ 
 function attachCartListeners() {
   document.querySelectorAll(".add-to-cart").forEach(button => {
     button.addEventListener("click", () => {
@@ -67,9 +66,9 @@ function attachCartListeners() {
   });
 }
 
-/**
- * Display cart items and total
- */
+
+  // Display cart items and total
+ 
 function updateCart() {
   const cartList = document.getElementById("cart-items");
   const totalDisplay = document.getElementById("cart-total");
@@ -87,15 +86,29 @@ function updateCart() {
     `;
     cartList.appendChild(li);
     total += item.price;
+// Update cart count badge in navbar
+const cartCount = document.getElementById("cart-count");
+
+if (cartCount) {
+  if (cart.length === 0) {
+    cartCount.style.display = "none";  // Optional: hide when empty
+  } else {
+    cartCount.style.display = "inline-block";
+    cartCount.textContent = cart.length;
+  }
+}
+cartCount.classList.add("updated");
+setTimeout(() => cartCount.classList.remove("updated"), 200);
+
   });
 
   totalDisplay.textContent = total;
   attachRemoveListeners();
 }
 
-/**
- * Allow items to be removed from cart
- */
+
+  // Allow items to be removed from cart
+ 
 function attachRemoveListeners() {
   document.querySelectorAll(".remove-item").forEach(button => {
     button.addEventListener("click", () => {
@@ -106,9 +119,8 @@ function attachRemoveListeners() {
   });
 }
 
-/**
- * Place order logic (for now, just an alert and reset)
- */
+//  Place order logic (for now, just an alert and reset)
+ 
 document.querySelector("form").addEventListener("submit", function (e) {
   e.preventDefault();
   const name = this.querySelector("input").value;
@@ -133,9 +145,9 @@ document.addEventListener("DOMContentLoaded", () => {
   fetchDiscoverMeals(); // Load API meals on page load
 });
 
-/**
- * Fetch meals from TheMealDB API and display them
- */
+
+//  Fetch meals from TheMealDB API and display them
+ 
 function fetchDiscoverMeals() {
   // API endpoint for random meals
   const API_URL = 'https://www.themealdb.com/api/json/v1/1/search.php?f=c';
@@ -155,9 +167,9 @@ function fetchDiscoverMeals() {
     });
 }
 
-/**
- * Render meals from API inside #api-meals section
- */
+
+//  Render meals from API inside #api-meals section
+ 
 function displayDiscoveredMeals(meals) {
   const apiContainer = document.getElementById("api-meals");
   meals.forEach(meal => {
